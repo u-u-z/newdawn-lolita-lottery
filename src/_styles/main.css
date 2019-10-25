@@ -1,11 +1,8 @@
 /* Normalize Styles */
 @import 'normalize.css';
-@import 'animate.min.css';
 
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
 
 *{
