@@ -89,16 +89,36 @@ startButton.onclick = () => {
     return (0.5 - Math.random());
   });
 
-  if (nameList.length == 0) {
+  // luckDog.addEventListener('animationend', function () {
+  //   luckDog.classList.remove('animated', 'fadeIn', 'delay-5s')
+  // })
+
+  if (nameList[1] == undefined) {
     luckDog.innerHTML = 'End!'
   } else {
     nameList = nameList.slice(1, nameList.length)
-    luckDog.innerHTML = nameList[0]
+    
+    //luckDog.classList.add('animated', 'fadeIn', 'delay-5s')
+    let i = 0
+    
+    let timer = setInterval(() => {
+      if(nameList[i] == undefined){
+        return 
+      }
+      luckDog.innerHTML = nameList[i]
+      i = i + 1
+      if (i == luckDog.length - 2) {
+        i = 0
+      }
+    }, 60)
+
+    setTimeout(()=>{
+      clearInterval(timer)
+      luckDog.innerHTML = nameList[0]
+    }, 2000);
+    
+
   }
-
-
-
-  
 
   console.log(`${nameList.length}`)
   console.log(luckDog)
